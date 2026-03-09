@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuCollagen™ by Amare — A Neu Kind of Collagen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-plum: #2d1b3d;
+    --berry: #c0185a;
+    --berry-light: #e8266e;
+    --gold: #c9a84c;
+    --gold-light: #e8c870;
+    --cream: #faf6f0;
+    --soft-white: #fff9f5;
+    --text-dark: #1a0e2e;
+    --text-mid: #4a3060;
+    --pink-glow: rgba(192, 24, 90, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--deep-plum);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0d0818 0%, #1e0d2e 40%, #2d0f3f 70%, #1a0528 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(192,24,90,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--deep-plum));
+  }
+
+  .amare-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 48px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    animation: fadeDown 0.9s ease both;
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+    animation: fadeDown 1s ease both;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--berry-light);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    max-width: 500px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+    animation: fadeDown 1.1s ease both;
+  }
+
+  .hero-drop {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle at 40% 30%, #ff4d8d, #c0185a 50%, #8b0a3d);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    margin: 0 auto 40px;
+    box-shadow: 0 0 60px rgba(192,24,90,0.6), 0 20px 40px rgba(0,0,0,0.4);
+    animation: dropPulse 3s ease-in-out infinite, fadeDown 1s ease both;
+  }
+
+  @keyframes dropPulse {
+    0%, 100% { transform: scale(1) translateY(0); box-shadow: 0 0 60px rgba(192,24,90,0.6), 0 20px 40px rgba(0,0,0,0.4); }
+    50% { transform: scale(1.05) translateY(-6px); box-shadow: 0 0 80px rgba(192,24,90,0.8), 0 30px 50px rgba(0,0,0,0.3); }
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--berry), var(--berry-light));
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px rgba(192,24,90,0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeDown 1.2s ease both;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(192,24,90,0.6);
+  }
+
+  /* TESTIMONIAL HOOK */
+  .hook {
+    background: var(--cream);
+    color: var(--text-dark);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .hook-inner { max-width: 640px; margin: 0 auto; }
+
+  .hook-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+  }
+
+  .hook-quote em { color: var(--berry); font-style: italic; }
+
+  .hook-context {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--berry);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .hook-bullets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .hook-pill {
+    background: var(--deep-plum);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 100px;
+  }
+
+  /* STORY SECTION */
+  .story {
+    background: linear-gradient(180deg, #0a0515 0%, #150a25 100%);
+    padding: 90px 24px;
+    text-align: center;
+  }
+
+  .story-inner { max-width: 620px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .story-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .story-text strong {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  /* 6 DIMENSIONS */
+  .dimensions {
+    background: var(--soft-white);
+    color: var(--text-dark);
+    padding: 90px 24px;
+  }
+
+  .dimensions-inner { max-width: 900px; margin: 0 auto; }
+
+  .section-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--deep-plum);
+  }
+
+  .section-headline em { color: var(--berry); font-style: italic; }
+
+  .section-sub {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    margin-bottom: 60px;
+  }
+
+  .dims-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .dim-card {
+    background: white;
+    border-radius: 4px;
+    padding: 32px 28px;
+    border-top: 3px solid var(--berry);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .dim-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  .dim-number {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 6px;
+  }
+
+  .dim-ingredient {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .dim-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--deep-plum);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .dim-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #5a4a70;
+  }
+
+  /* SCIENCE STRIP */
+  .science {
+    background: linear-gradient(135deg, var(--deep-plum), #1a0835);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .science-inner { max-width: 700px; margin: 0 auto; }
+
+  .science-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin: 48px 0;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 300;
+    color: var(--berry-light);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-top: 6px;
+  }
+
+  .science-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+
+  /* INGREDIENTS DEEP DIVE */
+  .ingredients {
+    background: var(--cream);
+    padding: 90px 24px;
+    color: var(--text-dark);
+  }
+
+  .ingredients-inner { max-width: 820px; margin: 0 auto; }
+
+  .ing-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+
+  @media(max-width: 600px) { .ing-row { grid-template-columns: 1fr; } }
+
+  .ing-card {
+    background: white;
+    padding: 36px 30px;
+    border-radius: 4px;
+    border-left: 4px solid var(--gold);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+
+  .ing-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--deep-plum);
+    margin-bottom: 6px;
+  }
+
+  .ing-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--berry);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  .ing-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #5a4a70;
+  }
+
+  .ing-stat {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fdf5ff;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--berry);
+    letter-spacing: 0.05em;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: linear-gradient(160deg, #0a0515 0%, #1e0530 50%, #0a0515 100%);
+    padding: 100px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(192,24,90,0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .final-cta-inner { max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .final-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .final-headline em { color: var(--berry-light); font-style: italic; }
+
+  .final-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 44px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .cta-group { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+  .cta-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--berry), #e8266e);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 20px 56px;
+    border-radius: 2px;
+    box-shadow: 0 8px 40px rgba(192,24,90,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 50px rgba(192,24,90,0.65); }
+
+  .cta-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #050010;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .disclaimer {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--berry), transparent);
+    margin: 0 auto 40px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="amare-logo">✦ amare global</div>
+  <div class="hero-eyebrow">Introducing the next evolution in collagen science</div>
+  <h1 class="hero-headline">A <em>Neu</em> Kind<br>of Collagen<br>Has Arrived.</h1>
+  <p class="hero-sub">Feel it. See it. Live it — all in one daily shot.</p>
+  <div class="hero-drop"></div>
+  <a href="https://www.amare.com/sc/Tt7uaK7LDm/2053854" class="cta-btn" target="_blank">Shop NeuCollagen™ Now</a>
+</section>
+
+<!-- TESTIMONIAL HOOK -->
+<section class="hook">
+  <div class="hook-inner">
+    <div class="hook-context reveal">Real results · Real people</div>
+    <div class="divider"></div>
+    <blockquote class="hook-quote reveal">
+      "All weekend I had people say to me — <em>'You look 10 years younger.'</em>"
+    </blockquote>
+    <p style="font-size:13px; color:#7a6a90; margin-bottom:28px;" class="reveal">
+      Maybe it's a coincidence. Maybe it's the Collagen.
+    </p>
+    <div class="hook-bullets reveal">
+      <span class="hook-pill">25 Clinical Studies</span>
+      <span class="hook-pill">6 Proven Benefits</span>
+      <span class="hook-pill">Joints · Skin · Hair</span>
+      <span class="hook-pill">Brain · Biome · Bones</span>
+      <span class="hook-pill">Tastes Like Juicy Berry</span>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-inner">
+    <div class="section-label reveal">The Story Behind It</div>
+    <div class="divider"></div>
+    <p class="story-text reveal">
+      The owner of Amare flew to Korea and secured an <strong>exclusive K-Beauty collagen ingredient</strong> used in medical dermatology clinics. It's now available <strong>only through Amare</strong> — and only in NeuCollagen™.<br><br>
+      Because quality is <strong>non-negotiable.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- 6 DIMENSIONS -->
+<section class="dimensions">
+  <div class="dimensions-inner">
+    <h2 class="section-headline reveal">6 Dimensions of<br><em>Total-Body</em> Benefits</h2>
+    <p class="section-sub reveal">One daily shot. Six science-backed results.*</p>
+    <div class="dims-grid">
+
+      <div class="dim-card reveal">
+        <div class="dim-number">Benefit 01</div>
+        <div class="dim-ingredient">Collavant® N2</div>
+        <div class="dim-title">Inhibit Collagen Loss</div>
+        <p class="dim-desc">Slows the breakdown of collagen by promoting joint lubrication, mobility & comfort while also supporting quicker recovery.*</p>
+      </div>
+
+      <div class="dim-card reveal">
+        <div class="dim-number">Benefit 02</div>
+        <div class="dim-ingredient">Mobilee®</div>
+        <div class="dim-title">Maintain Joint Comfort & Mobility</div>
+        <p class="dim-desc">Lowers Prostaglandin E2, a compound linked to joint discomfort, helping support joint comfort and overall joint function.*</p>
+      </div>
+
+      <div class="dim-card reveal">
+        <div class="dim-number">Benefit 03</div>
+        <div class="dim-ingredient">Mobilee®</div>
+        <div class="dim-title">Support Muscle Health</div>
+        <p class="dim-desc">Boosts the body's natural production of hyaluronic acid to support muscle strength and flexibility, while also increasing muscle cell proliferation.*</p>
+      </div>
+
+      <div class="dim-card reveal">
+        <div class="dim-number">Benefit 04</div>
+        <div class="dim-ingredient">GPX-4™</div>
+        <div class="dim-title">Boost Natural Collagen Production</div>
+        <p class="dim-desc">This exclusive K-Beauty ingredient boosts natural collagen production and helps improve skin elasticity, firmness, and barrier function.*</p>
+      </div>
+
+      <div class="dim-card reveal">
+        <div class="dim-number">Benefit 05</div>
+        <div class="dim-ingredient">Dermial® + Bioactive Collagen Peptides</div>
+        <div class="dim-title">Radiate From the Inside Out</div>
+        <p class="dim-desc">Hydrate the skin from within while helping reduce wrinkles for smoother skin. Support visibly fuller, thicker hair and stronger nails.*</p>
+      </div>
+
+      <div class="dim-card reveal">
+        <div class="dim-number">Benefit 06</div>
+        <div class="dim-ingredient">Cerebiome®</div>
+        <div class="dim-title">Manage Cortisol & Daily Stress</div>
+        <p class="dim-desc">Supports the gut-brain axis to promote balanced mood, help maintain healthy cortisol levels, and support mental well-being.*</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE STRIP -->
+<section class="science">
+  <div class="science-inner">
+    <div class="section-label reveal">The Science</div>
+    <div class="divider"></div>
+    <p class="science-text reveal">
+      NeuCollagen™ isn't just another collagen supplement.<br>It's a longevity shot backed by real clinical data.
+    </p>
+    <div class="science-stats">
+      <div class="stat-item reveal">
+        <span class="stat-number">25</span>
+        <span class="stat-label">Clinical Studies</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-number">17%</span>
+        <span class="stat-label">Muscle Strength Gain*</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-number">23%</span>
+        <span class="stat-label">Muscle Function Gain*</span>
+      </div>
+    </div>
+    <p style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:8px;">*vs. placebo in double-blind clinical studies over 3 months</p>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients">
+  <div class="ingredients-inner">
+    <h2 class="section-headline reveal" style="color:var(--deep-plum);">What's Inside<br><em>Every Shot</em></h2>
+    <p class="section-sub reveal" style="color:var(--text-mid);">Exclusive blends you won't find anywhere else</p>
+
+    <div class="ing-row">
+      <div class="ing-card reveal">
+        <div class="ing-name">GPX-4™</div>
+        <div class="ing-badge">Exclusive K-Beauty</div>
+        <p class="ing-text">A low molecular collagen tripeptide quickly absorbed by the body. Once ingested it promotes healthy collagen and hyaluronic acid production — helping reduce wrinkles and improve skin elasticity for a healthy, radiant complexion.*</p>
+      </div>
+
+      <div class="ing-card reveal">
+        <div class="ing-name">Collavant® N2</div>
+        <div class="ing-badge">Exclusive Ingredient Blend</div>
+        <p class="ing-text">An undenatured, native type II collagen derived from chicken sternum cartilage. Has a unique, immune-mediated mechanism of action that works through the gut-immune connection to inhibit collagen loss by slowing the breakdown of collagen.*</p>
+      </div>
+    </div>
+
+    <div class="ing-row">
+      <div class="ing-card reveal">
+        <div class="ing-name">Mobilee®</div>
+        <div class="ing-badge">Exclusive Ingredient Blend</div>
+        <p class="ing-text">Clinically shown to support muscle strength and function. In a double-blind study, improved muscle strength by 17% and muscle function by 23% over 3 months vs. placebo.*</p>
+        <div class="ing-stat">+17% muscle strength · +23% muscle function*</div>
+      </div>
+
+      <div class="ing-card reveal">
+        <div class="ing-name">Cerebiome®</div>
+        <div class="ing-badge">Gut-Brain Axis</div>
+        <p class="ing-text">Supports the gut-brain connection to promote balanced mood, healthy cortisol levels, and overall mental well-being. Because beauty starts from within — and so does peace of mind.*</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="section-label reveal">Ready to feel it?</div>
+    <div class="divider"></div>
+    <h2 class="final-headline reveal">
+      Feel younger.<br>Look younger.<br><em>Live younger.</em>
+    </h2>
+    <p class="final-sub reveal">
+      NeuCollagen™ is the only supplement that delivers all 6 dimensions of collagen support in a single daily shot — and it tastes like a juicy berry.
+    </p>
+    <div class="cta-group">
+      <a href="https://www.amare.com/sc/Tt7uaK7LDm/2053854" class="cta-primary reveal" target="_blank">
+        Get NeuCollagen™ Today →
+      </a>
+      <span class="cta-note reveal">Ships directly to your door · Amare Wellness Partner</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="disclaimer">
+    *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.<br><br>
+    Collavant® N2, Dermial® & Mobilee® are registered trademarks licensed by BIOIBERICA, S.A.U. GPX-4™ is a licensed trademark of Newtree Co. LTD. Cerebiome® is a registered trademark of Danstar Ferment AG. Mobilee® is a Registered Trademark licensed by BIOIBERICA, S.A.U.
+  </p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, (i % 3) * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
